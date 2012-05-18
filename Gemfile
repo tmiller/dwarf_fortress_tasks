@@ -1,0 +1,5 @@
+source 'http://rubygems.org'
+gem 'mechanize'
+gem 'os'
+gem 'debugger'
+gem 'rake'
