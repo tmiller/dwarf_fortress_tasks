@@ -42,6 +42,9 @@ task :config => 'df' do
 
   write_config 'init.txt', {
     intro: false, 
+    sound: false,
+    windowedx: 120,
+    windowedy: 71,
     font: TILESET
   }
 
