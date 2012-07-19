@@ -45,6 +45,7 @@ task :config => 'df' do
     sound: false,
     windowedx: 120,
     windowedy: 71,
+    print_mode: 'standard',
     font: TILESET
   }
 
@@ -55,7 +56,7 @@ task :config => 'df' do
     population_cap: 100,
     baby_child_cap: [20, 20],
     varied_ground_tiles: false,
-    show_flow_ammounts: true
+    show_flow_amounts: true
   }
 end
 
@@ -77,4 +78,8 @@ file 'df.tar.bz2' do
               end
   filename = Mechanize.new.get(url).link_with(text: link_text).href
   sh "curl -# #{url}#{filename} -o df.tar.bz2" unless filename.empty?
+end
+
+task :install => [:config, :setup] do
+  mv 'df', "#{ENV['HOME']}/df"
 end
