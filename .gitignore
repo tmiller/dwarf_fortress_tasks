@@ -1,3 +1,4 @@
 .bundle
 *.tar.bz2
+*.tar
 df

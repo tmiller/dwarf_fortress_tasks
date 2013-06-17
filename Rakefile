@@ -3,7 +3,7 @@ require 'bundler'
 Bundler.require
 require 'rake/clean'
 
-CLEAN.include('df', '*.tar.bz2')
+CLEAN.include('df', '*.tar.bz2', '*.tar')
 CLOBBER.include('df')
 
 TILESET = 'vidumec-12x12.png'
@@ -65,9 +65,13 @@ task :setup => 'df' do
   cp "tilesets/#{TILESET}", "df/data/art/#{TILESET}"
 end
 
-file 'df' => ['df.tar.bz2'] do |t|
-  sh "tar -xzf #{t.prerequisites.first}"
+file 'df' => ['df.tar'] do |t|
+  sh "tar -xf #{t.prerequisites.first}"
   mv FileList['df_{osx,linux}'].first, t.name
+end
+
+file 'df.tar' => ['df.tar.bz2'] do |t|
+  sh "bunzip2 #{t.prerequisites.first}"
 end
 
 file 'df.tar.bz2' do
