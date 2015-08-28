@@ -1,13 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    columnize (0.3.6)
-    debugger (1.6.3)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.4)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.4)
     domain_name (0.5.15)
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.2)
@@ -39,7 +32,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  debugger
   mechanize
   os
   rake
+
+BUNDLED WITH
+   1.10.6
